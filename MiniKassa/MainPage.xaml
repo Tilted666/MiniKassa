@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniKassa.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+            <Label Text="Мини-касса" FontSize="28" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,0,0,20"/>
+
+            <!-- Выбор товара -->
+            <Label Text="Выберите товар/услугу:" />
+            <Picker x:Name="ProductPicker" Title="Нажмите для выбора">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Кофе (150 руб.)</x:String>
+                        <x:String>Чай (100 руб.)</x:String>
+                        <x:String>Круассан (200 руб.)</x:String>
+                        <x:String>Сэндвич (250 руб.)</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <!-- Количество -->
+            <Label Text="Количество (от 1 до 100):" />
+            <Entry x:Name="QuantityEntry" Placeholder="Введите целое число" Keyboard="Numeric" />
+
+            <!-- Кнопки -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15" Margin="0,10,0,10">
+                <Button Grid.Column="0" Text="Рассчитать" Clicked="OnCalculateClicked" BackgroundColor="#512BD4" TextColor="White" />
+                <Button Grid.Column="1" Text="Сбросить" Clicked="OnResetClicked" BackgroundColor="#E0E0E0" TextColor="Black" />
+            </Grid>
+
+            <!-- Результат -->
+            <Label x:Name="ResultLabel" FontSize="18" HorizontalOptions="Center" TextColor="#2E7D32" FontAttributes="Bold"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
